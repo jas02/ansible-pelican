@@ -6,7 +6,7 @@
     dest: /usr/local/bin/get_pip.py
     mode: 0755
   environment:
-    http_proxy: {{ http_proxy }}
+    http_proxy: "{{ http_proxy }}"
 
 - name: install pip
   command: python2.7 /usr/local/bin/get_pip.py
