@@ -1,2 +1,10 @@
 ---
-# tasks file for .
+- name: install python-pip
+  apt:
+    name: python-pip
+    state: present
+
+- name: install virtualenv
+  pip:
+    name: virtualenv
+    state: present
