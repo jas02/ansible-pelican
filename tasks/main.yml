@@ -17,3 +17,24 @@
   pip:
     name: virtualenv
     state: present
+
+- name: create pelican group
+  group:
+    name: pelican
+    state: present
+
+- name: create pelican user
+  user:
+    name: pelican
+    group: pelican
+    state: present
+
+- name: create pelican directory
+  command: virtualenv --no-site-packages /srv/pelican
+  args:
+    creates: /srv/pelican
+
+- name: install pelican into virtualenv
+  pip:
+    name: pelican
+    virtualenv: /srv/pelican
