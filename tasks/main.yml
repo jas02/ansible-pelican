@@ -1,8 +1,15 @@
 ---
-- name: install python-pip
-  apt:
-    name: python-pip
-    state: present
+
+- name: download get_pip
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: /usr/local/bin/get_pip.py
+    mode: 0755
+
+- name: install pip
+  command: python2.7 /usr/local/bin/get_pip.py
+  args:
+    createtes: /usr/bin/pip2.7
 
 - name: install virtualenv
   pip:
