@@ -11,7 +11,7 @@
 - name: install pip
   command: python2.7 /usr/local/bin/get_pip.py
   args:
-    creates: /usr/bin/pip2.7
+    creates: /usr/local/bin/pip2
 
 - name: install virtualenv
   pip:
